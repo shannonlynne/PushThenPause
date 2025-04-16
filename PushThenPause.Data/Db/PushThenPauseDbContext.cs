@@ -9,7 +9,7 @@ public class PushThenPauseDbContext : DbContext
         : base(options) { }
 
     public DbSet<User> Users => Set<User>();
-    public DbSet<UserTask> Tasks => Set<UserTask>();
+    public DbSet<UserTask> UserTasks => Set<UserTask>();
     public DbSet<TaskCategory> TaskCategories => Set<TaskCategory>();
     public DbSet<BreakActivity> BreakActivities => Set<BreakActivity>();
     public DbSet<Cycle> Cycles => Set<Cycle>();
