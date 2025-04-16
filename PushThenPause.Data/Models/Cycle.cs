@@ -6,9 +6,9 @@ public class Cycle
     public int UserId { get; set; }
     public int? TaskId { get; set; }
     public int? BreakActivityId { get; set; }
-
-    public DateTime StartedAt { get; set; }
-    public DateTime? EndedAt { get; set; }
+    public DateTime Created { get; set; } = DateTime.UtcNow;
+    public int DurationMinutesBreakActivity { get; set; }
+    public int DurationMinutesUserTask { get; set; }
     public string? Notes { get; set; }
 
     public User User { get; set; } = null!;
