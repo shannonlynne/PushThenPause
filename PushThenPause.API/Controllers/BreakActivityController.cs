@@ -19,7 +19,6 @@ namespace PushThenPause.API.Controllers
         public async Task<ActionResult<IEnumerable<BreakActivity>>> GetAll()
         {
             List<BreakActivity> breakActivities = await _context.BreakActivities
-                .Include(b => b.Cycles)
                 .ToListAsync();
 
             return Ok(breakActivities);
@@ -29,18 +28,16 @@ namespace PushThenPause.API.Controllers
         public async Task<ActionResult<BreakActivity>> GetById(int id)
         {
             BreakActivity? breakActivity = await _context.BreakActivities
-                .Include(b => b.Cycles)
                 .FirstOrDefaultAsync(b => b.BreakActivityId == id);
 
             return breakActivity is null ? NotFound() : Ok(breakActivity);
         }
 
-        [HttpGet("user/{userid}")]
-        public async Task<ActionResult<IEnumerable<BreakActivity>>> GetByUserId(int userId)
+        [HttpGet("user/{userId}")]
+        public async Task<ActionResult<IEnumerable<BreakActivity>>> GetByuserId(int userId)
         {
             List<BreakActivity> breakActivities = await _context.BreakActivities
                 .Where(b => b.UserId == userId)
-                .Include(c => c.Cycles)
                 .ToListAsync();
 
             return Ok(breakActivities);

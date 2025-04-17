@@ -36,12 +36,12 @@ namespace PushThenPause.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("userId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("BreakActivityId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("userId");
 
                     b.ToTable("BreakActivities");
                 });
@@ -67,7 +67,7 @@ namespace PushThenPause.Data.Migrations
                     b.Property<int?>("TaskId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("userId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("CycleId");
@@ -76,7 +76,7 @@ namespace PushThenPause.Data.Migrations
 
                     b.HasIndex("TaskId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("userId");
 
                     b.ToTable("Cycles");
                 });
@@ -94,12 +94,12 @@ namespace PushThenPause.Data.Migrations
                     b.Property<bool>("IsEnabled")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("userId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("NemsModeSettingsId");
 
-                    b.HasIndex("UserId")
+                    b.HasIndex("userId")
                         .IsUnique();
 
                     b.ToTable("NemsModeSettings");
@@ -120,12 +120,12 @@ namespace PushThenPause.Data.Migrations
                     b.Property<int>("StepsCompleted")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("userId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("StreakTrackerId");
 
-                    b.HasIndex("UserId")
+                    b.HasIndex("userId")
                         .IsUnique();
 
                     b.ToTable("StreakTrackers");
@@ -154,7 +154,7 @@ namespace PushThenPause.Data.Migrations
 
             modelBuilder.Entity("PushThenPause.Data.User", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("userId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -169,7 +169,7 @@ namespace PushThenPause.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("UserId");
+                    b.HasKey("userId");
 
                     b.ToTable("Users");
                 });
@@ -196,14 +196,14 @@ namespace PushThenPause.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("userId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("UserTaskId");
 
                     b.HasIndex("TaskCategoryId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("userId");
 
                     b.ToTable("Tasks");
                 });
@@ -212,7 +212,7 @@ namespace PushThenPause.Data.Migrations
                 {
                     b.HasOne("PushThenPause.Data.User", "User")
                         .WithMany("BreakActivities")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("userId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -231,7 +231,7 @@ namespace PushThenPause.Data.Migrations
 
                     b.HasOne("PushThenPause.Data.User", "User")
                         .WithMany("Cycles")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("userId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -246,7 +246,7 @@ namespace PushThenPause.Data.Migrations
                 {
                     b.HasOne("PushThenPause.Data.User", "User")
                         .WithOne("NemsModeSettings")
-                        .HasForeignKey("PushThenPause.Data.NemsModeSettings", "UserId")
+                        .HasForeignKey("PushThenPause.Data.NemsModeSettings", "userId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -257,7 +257,7 @@ namespace PushThenPause.Data.Migrations
                 {
                     b.HasOne("PushThenPause.Data.User", "User")
                         .WithOne("StreakTracker")
-                        .HasForeignKey("PushThenPause.Data.StreakTracker", "UserId")
+                        .HasForeignKey("PushThenPause.Data.StreakTracker", "userId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -274,7 +274,7 @@ namespace PushThenPause.Data.Migrations
 
                     b.HasOne("PushThenPause.Data.User", "User")
                         .WithMany("Tasks")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("userId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

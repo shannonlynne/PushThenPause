@@ -3,15 +3,9 @@
 public class User
 {
     public int UserId { get; set; }
+
     public string Username { get; set; } = string.Empty;
     public string? DisplayName { get; set; }
     public string Email { get; set; } = string.Empty;
     public DateTime DateCreated { get; set; } = DateTime.UtcNow;
-    public bool? IsNemsModeEnabled { get; set; } = false;
-
-    public ICollection<UserTask> Tasks { get; set; } = new List<UserTask>();
-    public ICollection<BreakActivity> BreakActivities { get; set; } = new List<BreakActivity>();
-    public ICollection<Cycle> Cycles { get; set; } = new List<Cycle>();
-    public StreakTracker? StreakTracker { get; set; }
-    public NemsModeSettings NemsModeSettings { get; set; } = new NemsModeSettings();
 }

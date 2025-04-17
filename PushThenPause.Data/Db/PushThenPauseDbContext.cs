@@ -15,19 +15,4 @@ public class PushThenPauseDbContext : DbContext
     public DbSet<Cycle> Cycles => Set<Cycle>();
     public DbSet<StreakTracker> StreakTrackers => Set<StreakTracker>();
     public DbSet<NemsModeSettings> NemsModeSettings => Set<NemsModeSettings>();
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        base.OnModelCreating(modelBuilder);
-
-        modelBuilder.Entity<User>()
-            .HasOne(u => u.StreakTracker)
-            .WithOne(s => s.User)
-            .HasForeignKey<StreakTracker>(s => s.UserId);
-
-        modelBuilder.Entity<User>()
-            .HasOne(u => u.NemsModeSettings)
-            .WithOne(n => n.User)
-            .HasForeignKey<NemsModeSettings>(n => n.UserId);
-    }
 }

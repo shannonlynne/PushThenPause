@@ -21,19 +21,16 @@ namespace PushThenPause.API.Controllers
         {
             Cycle? cycle = await _context.Cycles
                 .Where(b => b.CycleId == id)
-                .Include(c => c.Task)
-                .Include(c => c.BreakActivity)
-                .Include(c => c.User)
                 .FirstOrDefaultAsync();
 
             return cycle == null ? NotFound() : Ok(cycle);
         }
 
-        [HttpGet("user/{userid}")]
-        public async Task<ActionResult<IEnumerable<Cycle>>> GetByUser(int userid)
+        [HttpGet("user/{userId}")]
+        public async Task<ActionResult<IEnumerable<Cycle>>> GetByUser(int userId)
         {
             List<Cycle> cycles = await _context.Cycles
-                .Where(c => c.UserId == userid)
+                .Where(c => c.UserId == userId)
                 .OrderByDescending(c => c.Created)
                 .ToListAsync();
 

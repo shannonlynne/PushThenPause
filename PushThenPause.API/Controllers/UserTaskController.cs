@@ -19,7 +19,6 @@ namespace PushThenPause.API.Controllers
         public async Task<ActionResult<IEnumerable<UserTask>>> GetAll()
         {
             List<UserTask> tasks = await _context.UserTasks
-                .Include(t => t.TaskCategory)
                 .ToListAsync();
 
             return Ok(tasks);
@@ -30,7 +29,6 @@ namespace PushThenPause.API.Controllers
         {
             List<UserTask> tasks = await _context.UserTasks
                 .Where(t => t.UserId == userId)
-                .Include(t => t.TaskCategory)
                 .ToListAsync();
 
             return Ok(tasks);
@@ -41,7 +39,6 @@ namespace PushThenPause.API.Controllers
         public async Task<ActionResult<UserTask>> GetById(int id)
         {
             UserTask? task = await _context.UserTasks
-                .Include(t => t.TaskCategory)
                 .FirstOrDefaultAsync(t => t.UserTaskId == id);
 
             return task is null ? NotFound() : Ok(task);
@@ -101,7 +98,6 @@ namespace PushThenPause.API.Controllers
         {
             List<UserTask> tasks = await _context.UserTasks
                 .Where(t => t.TaskCategoryId == categoryId)
-                .Include(t => t.TaskCategory)
                 .ToListAsync();
 
             return Ok(tasks);

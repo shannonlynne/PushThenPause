@@ -30,7 +30,7 @@ namespace PushThenPause.Data.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "INTEGER", nullable: false)
+                    userId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Username = table.Column<string>(type: "TEXT", nullable: false),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
@@ -38,7 +38,7 @@ namespace PushThenPause.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.PrimaryKey("PK_Users", x => x.userId);
                 });
 
             migrationBuilder.CreateTable(
@@ -47,7 +47,7 @@ namespace PushThenPause.Data.Migrations
                 {
                     BreakActivityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
+                    userId = table.Column<int>(type: "INTEGER", nullable: false),
                     Title = table.Column<string>(type: "TEXT", nullable: false),
                     DurationMinutes = table.Column<int>(type: "INTEGER", nullable: false),
                     MoodTag = table.Column<string>(type: "TEXT", nullable: true)
@@ -56,10 +56,10 @@ namespace PushThenPause.Data.Migrations
                 {
                     table.PrimaryKey("PK_BreakActivities", x => x.BreakActivityId);
                     table.ForeignKey(
-                        name: "FK_BreakActivities_Users_UserId",
-                        column: x => x.UserId,
+                        name: "FK_BreakActivities_Users_userId",
+                        column: x => x.userId,
                         principalTable: "Users",
-                        principalColumn: "UserId",
+                        principalColumn: "userId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -69,7 +69,7 @@ namespace PushThenPause.Data.Migrations
                 {
                     NemsModeSettingsId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
+                    userId = table.Column<int>(type: "INTEGER", nullable: false),
                     IsEnabled = table.Column<bool>(type: "INTEGER", nullable: false),
                     EncouragementFrequency = table.Column<string>(type: "TEXT", nullable: false)
                 },
@@ -77,10 +77,10 @@ namespace PushThenPause.Data.Migrations
                 {
                     table.PrimaryKey("PK_NemsModeSettings", x => x.NemsModeSettingsId);
                     table.ForeignKey(
-                        name: "FK_NemsModeSettings_Users_UserId",
-                        column: x => x.UserId,
+                        name: "FK_NemsModeSettings_Users_userId",
+                        column: x => x.userId,
                         principalTable: "Users",
-                        principalColumn: "UserId",
+                        principalColumn: "userId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -90,7 +90,7 @@ namespace PushThenPause.Data.Migrations
                 {
                     StreakTrackerId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
+                    userId = table.Column<int>(type: "INTEGER", nullable: false),
                     Date = table.Column<DateTime>(type: "TEXT", nullable: false),
                     StepsCompleted = table.Column<int>(type: "INTEGER", nullable: false),
                     BreaksTaken = table.Column<int>(type: "INTEGER", nullable: false)
@@ -99,10 +99,10 @@ namespace PushThenPause.Data.Migrations
                 {
                     table.PrimaryKey("PK_StreakTrackers", x => x.StreakTrackerId);
                     table.ForeignKey(
-                        name: "FK_StreakTrackers_Users_UserId",
-                        column: x => x.UserId,
+                        name: "FK_StreakTrackers_Users_userId",
+                        column: x => x.userId,
                         principalTable: "Users",
-                        principalColumn: "UserId",
+                        principalColumn: "userId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -112,7 +112,7 @@ namespace PushThenPause.Data.Migrations
                 {
                     UserTaskId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
+                    userId = table.Column<int>(type: "INTEGER", nullable: false),
                     TaskCategoryId = table.Column<int>(type: "INTEGER", nullable: false),
                     Title = table.Column<string>(type: "TEXT", nullable: false),
                     DurationMinutes = table.Column<int>(type: "INTEGER", nullable: false),
@@ -129,10 +129,10 @@ namespace PushThenPause.Data.Migrations
                         principalColumn: "TaskCategoryId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Tasks_Users_UserId",
-                        column: x => x.UserId,
+                        name: "FK_Tasks_Users_userId",
+                        column: x => x.userId,
                         principalTable: "Users",
-                        principalColumn: "UserId",
+                        principalColumn: "userId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -142,7 +142,7 @@ namespace PushThenPause.Data.Migrations
                 {
                     CycleId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
+                    userId = table.Column<int>(type: "INTEGER", nullable: false),
                     TaskId = table.Column<int>(type: "INTEGER", nullable: true),
                     BreakActivityId = table.Column<int>(type: "INTEGER", nullable: true),
                     StartedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
@@ -163,17 +163,17 @@ namespace PushThenPause.Data.Migrations
                         principalTable: "Tasks",
                         principalColumn: "UserTaskId");
                     table.ForeignKey(
-                        name: "FK_Cycles_Users_UserId",
-                        column: x => x.UserId,
+                        name: "FK_Cycles_Users_userId",
+                        column: x => x.userId,
                         principalTable: "Users",
-                        principalColumn: "UserId",
+                        principalColumn: "userId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_BreakActivities_UserId",
+                name: "IX_BreakActivities_userId",
                 table: "BreakActivities",
-                column: "UserId");
+                column: "userId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cycles_BreakActivityId",
@@ -186,20 +186,20 @@ namespace PushThenPause.Data.Migrations
                 column: "TaskId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cycles_UserId",
+                name: "IX_Cycles_userId",
                 table: "Cycles",
-                column: "UserId");
+                column: "userId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_NemsModeSettings_UserId",
+                name: "IX_NemsModeSettings_userId",
                 table: "NemsModeSettings",
-                column: "UserId",
+                column: "userId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_StreakTrackers_UserId",
+                name: "IX_StreakTrackers_userId",
                 table: "StreakTrackers",
-                column: "UserId",
+                column: "userId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
@@ -208,9 +208,9 @@ namespace PushThenPause.Data.Migrations
                 column: "TaskCategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tasks_UserId",
+                name: "IX_Tasks_userId",
                 table: "Tasks",
-                column: "UserId");
+                column: "userId");
         }
 
         /// <inheritdoc />

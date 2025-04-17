@@ -20,10 +20,6 @@ namespace PushThenPause.API.Controllers
         public async Task<ActionResult<User>> GetById(int id)
         {
             User? user = await _context.Users
-                .Include(t => t.Tasks)
-                .Include(b => b.BreakActivities)
-                .Include(c => c.Cycles)
-                .Include(s => s.StreakTracker)
                 .FirstOrDefaultAsync(u => u.UserId == id);
 
             return user is null ? NotFound() : Ok(user);
@@ -63,7 +59,6 @@ namespace PushThenPause.API.Controllers
             existingUser.DisplayName = user.DisplayName;
             existingUser.Email = user.Email;
             existingUser.Username = user.Username;
-            existingUser.IsNemsModeEnabled = user.IsNemsModeEnabled;
 
             await _context.SaveChangesAsync();
 

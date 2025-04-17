@@ -2,12 +2,9 @@
 
 public class StreakTracker
 {
-    public int StreakTrackerId { get; set; }
+    public int StreakTrackerId { get; set; } = 0;
     public int UserId { get; set; }
 
-    public DateTime Date { get; set; }
-    public int StepsCompleted { get; set; }
-    public int BreaksTaken { get; set; }
-
-    public User User { get; set; } = null!;
+    public int StreakCount { get; set; } = 0;
+    public DateOnly Date { get; set; } = new DateOnly();
 }

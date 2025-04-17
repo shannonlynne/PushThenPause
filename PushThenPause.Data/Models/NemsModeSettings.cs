@@ -7,6 +7,4 @@ public class NemsModeSettings
 
     public bool IsEnabled { get; set; } = true;
     public string EncouragementFrequency { get; set; } = "EveryCycle";
-
-    public User User { get; set; } = null!;
 }

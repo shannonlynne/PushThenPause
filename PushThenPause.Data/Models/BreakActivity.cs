@@ -8,7 +8,4 @@ public class BreakActivity
     public string Title { get; set; } = string.Empty;
     public int DurationMinutes { get; set; }
     public string? MoodTag { get; set; }
-
-    public User User { get; set; } = null!;
-    public ICollection<Cycle> Cycles { get; set; } = new List<Cycle>();
 }
