@@ -1,4 +1,4 @@
-﻿namespace PushThenPause.Services.Dtos;
+﻿namespace PushThenPause.Business.Dtos;
 
 public class DashboardDto
 {

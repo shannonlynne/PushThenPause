@@ -1,6 +1,6 @@
-﻿using PushThenPause.Services.Dtos;
+﻿using PushThenPause.Business.Dtos;
 
-namespace PushThenPause.Services.Interfaces
+namespace PushThenPause.Business.Interfaces
 {
     public interface IDashboardService
     {

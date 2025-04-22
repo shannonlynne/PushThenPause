@@ -1,8 +1,8 @@
-﻿using PushThenPause.Data;
-using PushThenPause.Services.Dtos;
-using PushThenPause.Services.Interfaces;
+﻿using PushThenPause.Business.Dtos;
+using PushThenPause.Business.Interfaces;
+using PushThenPause.Data;
 
-namespace PushThenPause.Services.Services
+namespace PushThenPause.Business.Services
 {
     public class DashboardService : IDashboardService
     {
@@ -23,5 +23,15 @@ namespace PushThenPause.Services.Services
 
             return dashboardDto;
         }
+
+        public async Task<List<CycleDto>> AddCycle()
+        {
+            List<CycleDto> cycleDtos = new List<CycleDto>();
+
+            //Add a cycle
+            return cycleDtos;
+        }
+
+        //
     }
 }

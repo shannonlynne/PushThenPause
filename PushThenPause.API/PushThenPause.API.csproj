@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PushThenPause.Data\PushThenPause.Data.csproj" />
-    <ProjectReference Include="..\PushThenPause.Services\PushThenPause.Services.csproj" />
+    <ProjectReference Include="..\PushThenPause.Services\PushThenPause.Business.csproj" />
   </ItemGroup>
 
 </Project>
