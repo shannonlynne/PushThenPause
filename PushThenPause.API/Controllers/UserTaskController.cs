@@ -25,7 +25,7 @@ namespace PushThenPause.API.Controllers
         }
 
         [HttpGet("user/{userId}")]
-        public async Task<ActionResult<IEnumerable<UserTask>>> GetByUser(int userId)
+        public async Task<ActionResult<IEnumerable<UserTask>>> GetByUserId(int userId)
         {
             List<UserTask> tasks = await _context.UserTasks
                 .Where(t => t.UserId == userId)

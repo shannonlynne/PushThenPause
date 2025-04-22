@@ -6,5 +6,5 @@ public class StreakTracker
     public int UserId { get; set; }
 
     public int StreakCount { get; set; } = 0;
-    public DateOnly Date { get; set; } = new DateOnly();
+    public DateOnly Date { get; set; } = DateOnly.FromDateTime(DateTime.UtcNow);
 }

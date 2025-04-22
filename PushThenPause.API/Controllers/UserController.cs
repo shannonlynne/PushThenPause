@@ -16,11 +16,11 @@ namespace PushThenPause.API.Controllers
             _context = context;
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetById(int id)
+        [HttpGet("{userId}")]
+        public async Task<ActionResult<User>> GetByUserId(int userId)
         {
             User? user = await _context.Users
-                .FirstOrDefaultAsync(u => u.UserId == id);
+                .FirstOrDefaultAsync(u => u.UserId == userId);
 
             return user is null ? NotFound() : Ok(user);
         }
@@ -33,13 +33,17 @@ namespace PushThenPause.API.Controllers
 
             if (existingUser is not null)
             {
-                return BadRequest($"There is already an account with email: {user.Email}");
+                return Conflict($"There is already an account with email: {user.Email}");
             }
+
+            string dbPath = _context.Database.GetDbConnection().DataSource;
+            Console.WriteLine($"Using DB file at: {dbPath}");
 
             await _context.Users
                 .AddAsync(user);
+            await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetById), new { id = user.UserId }, user);
+            return CreatedAtAction(nameof(GetByUserId), new { userId = user.UserId }, user);
         }
 
         [HttpPut("{id}")]
@@ -50,7 +54,8 @@ namespace PushThenPause.API.Controllers
                 return BadRequest("The ID has no relation to this user.");
             }
 
-            User? existingUser = await _context.Users.FindAsync(user.UserId);
+            User? existingUser = await _context.Users
+                .FirstOrDefaultAsync(u => u.UserId == user.UserId);
             if (existingUser is null)
             {
                 return NotFound();

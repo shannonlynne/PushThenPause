@@ -18,10 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PushThenPause.Data\PushThenPause.Data.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\PushThenPause.Services\PushThenPause.Services.csproj" />
   </ItemGroup>
 
 </Project>

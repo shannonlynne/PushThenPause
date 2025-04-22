@@ -66,7 +66,7 @@ namespace PushThenPause.API.Controllers
             existingCycle.DurationMinutesBreakActivity = cycle.DurationMinutesBreakActivity;
             existingCycle.DurationMinutesUserTask = cycle.DurationMinutesUserTask;
             existingCycle.BreakActivityId = cycle.BreakActivityId;
-            existingCycle.TaskId = cycle.TaskId;
+            existingCycle.UserTaskId = cycle.UserTaskId;
             existingCycle.UserId = cycle.UserId;
             existingCycle.Notes = cycle.Notes;
 

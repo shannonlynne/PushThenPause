@@ -8,4 +8,5 @@ public class BreakActivity
     public string Title { get; set; } = string.Empty;
     public int DurationMinutes { get; set; }
     public string? MoodTag { get; set; }
+    public string? Notes { get; set; }
 }

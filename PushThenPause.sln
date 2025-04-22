@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PushThenPause.API", "PushTh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PushThenPause.Data", "PushThenPause.Data\PushThenPause.Data.csproj", "{DF33947A-ACDE-41EA-9583-4F66ACC43ED9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushThenPause.Services", "PushThenPause.Services\PushThenPause.Services.csproj", "{D3A82E2E-7955-451C-8542-1D6EA99F3853}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DF33947A-ACDE-41EA-9583-4F66ACC43ED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF33947A-ACDE-41EA-9583-4F66ACC43ED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF33947A-ACDE-41EA-9583-4F66ACC43ED9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3A82E2E-7955-451C-8542-1D6EA99F3853}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3A82E2E-7955-451C-8542-1D6EA99F3853}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3A82E2E-7955-451C-8542-1D6EA99F3853}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3A82E2E-7955-451C-8542-1D6EA99F3853}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

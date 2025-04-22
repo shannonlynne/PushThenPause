@@ -14,7 +14,7 @@ Built for:
 ## ✨ Key Features
 
 - ⏱️ Customizable Task & Break Timers
-- 🐶 Optional "Nemo Mode" – motivation from a virtual pup
+- 🐶 Optional "Nemo Mode", motivation from a virtual pup
 - 🎯 Gentle Streaks (No shame, only love)
 - 💡 End-of-day reflections
 - 🧠 Energy-based task sorting (Low / Medium / High)
@@ -28,7 +28,7 @@ Built for:
 
 ## 🚧 Status
 
-Currently in early development. Repo and structure setup coming soon.
+Still in development...
 
 ---
 

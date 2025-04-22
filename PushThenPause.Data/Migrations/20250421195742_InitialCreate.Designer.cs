@@ -11,8 +11,8 @@ using PushThenPause.Data;
 namespace PushThenPause.Data.Migrations
 {
     [DbContext(typeof(PushThenPauseDbContext))]
-    [Migration("20250416215157_UpdateModels_Cleanup")]
-    partial class UpdateModels_Cleanup
+    [Migration("20250421195742_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,6 +30,9 @@ namespace PushThenPause.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("MoodTag")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Notes")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
@@ -50,10 +53,10 @@ namespace PushThenPause.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("BreakActivityId")
+                    b.Property<int>("BreakActivityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Created")
+                    b.Property<DateOnly>("Created")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("DurationMinutesBreakActivity")
@@ -65,10 +68,10 @@ namespace PushThenPause.Data.Migrations
                     b.Property<string>("Notes")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("TaskId")
+                    b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("UserTaskId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("CycleId");
@@ -147,10 +150,11 @@ namespace PushThenPause.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateOnly>("DateCreated")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("DisplayName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")

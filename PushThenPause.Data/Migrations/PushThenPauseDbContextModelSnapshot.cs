@@ -29,6 +29,9 @@ namespace PushThenPause.Data.Migrations
                     b.Property<string>("MoodTag")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Notes")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -47,10 +50,10 @@ namespace PushThenPause.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("BreakActivityId")
+                    b.Property<int>("BreakActivityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Created")
+                    b.Property<DateOnly>("Created")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("DurationMinutesBreakActivity")
@@ -62,10 +65,10 @@ namespace PushThenPause.Data.Migrations
                     b.Property<string>("Notes")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("TaskId")
+                    b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("UserTaskId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("CycleId");
@@ -144,10 +147,11 @@ namespace PushThenPause.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateOnly>("DateCreated")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("DisplayName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
