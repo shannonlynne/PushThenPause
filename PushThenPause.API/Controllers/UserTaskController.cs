@@ -45,7 +45,7 @@ namespace PushThenPause.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<UserTask>> Create(UserTask userTask)
+        public async Task<ActionResult<UserTask>> Create([FromBody] UserTask userTask)
         {
             _context.UserTasks.Add(userTask);
             await _context.SaveChangesAsync();

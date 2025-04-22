@@ -38,7 +38,7 @@ namespace PushThenPause.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<IEnumerable<Cycle>>> Create(Cycle cycle)
+        public async Task<ActionResult<IEnumerable<Cycle>>> Create([FromBody] Cycle cycle)
         {
             await _context.Cycles
                 .AddAsync(cycle);

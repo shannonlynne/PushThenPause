@@ -44,7 +44,7 @@ namespace PushThenPause.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<BreakActivity>> Create(BreakActivity breakActivity)
+        public async Task<ActionResult<BreakActivity>> Create([FromBody] BreakActivity breakActivity)
         {
             await _context.BreakActivities
                 .AddAsync(breakActivity);

@@ -26,7 +26,7 @@ namespace PushThenPause.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<NemsModeSettings>> Create(NemsModeSettings nemsModeSettings)
+        public async Task<ActionResult<NemsModeSettings>> Create([FromBody] NemsModeSettings nemsModeSettings)
         {
             NemsModeSettings? existingSettings = await _context.NemsModeSettings
                 .FirstOrDefaultAsync(s => s.UserId == nemsModeSettings.UserId);
