@@ -4,7 +4,6 @@ public class UserTask
 {
     public int UserTaskId { get; set; }
     public int UserId { get; set; }
-    public int TaskCategoryId { get; set; }
 
     public string Title { get; set; } = string.Empty;
     public int DurationMinutes { get; set; }

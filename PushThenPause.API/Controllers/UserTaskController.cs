@@ -71,7 +71,6 @@ namespace PushThenPause.API.Controllers
             existingTask.DurationMinutes = updatedTask.DurationMinutes;
             existingTask.Notes = updatedTask.Notes;
             existingTask.IsRecurring = updatedTask.IsRecurring;
-            existingTask.TaskCategoryId = updatedTask.TaskCategoryId;
 
             await _context.SaveChangesAsync();
 
@@ -92,16 +91,5 @@ namespace PushThenPause.API.Controllers
 
             return NoContent();
         }
-
-        [HttpGet("category/{categoryId}")]
-        public async Task<ActionResult<IEnumerable<UserTask>>> GetByCategory(int categoryId)
-        {
-            List<UserTask> tasks = await _context.UserTasks
-                .Where(t => t.TaskCategoryId == categoryId)
-                .ToListAsync();
-
-            return Ok(tasks);
-        }
-
     }
 }

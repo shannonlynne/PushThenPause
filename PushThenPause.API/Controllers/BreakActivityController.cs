@@ -79,7 +79,7 @@ namespace PushThenPause.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             BreakActivity? existingBreakActivity = await _context.BreakActivities

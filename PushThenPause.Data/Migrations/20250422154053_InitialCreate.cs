@@ -38,8 +38,6 @@ namespace PushThenPause.Data.Migrations
                     UserTaskId = table.Column<int>(type: "INTEGER", nullable: false),
                     BreakActivityId = table.Column<int>(type: "INTEGER", nullable: false),
                     Created = table.Column<DateOnly>(type: "TEXT", nullable: false),
-                    DurationMinutesBreakActivity = table.Column<int>(type: "INTEGER", nullable: false),
-                    DurationMinutesUserTask = table.Column<int>(type: "INTEGER", nullable: false),
                     Notes = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
@@ -78,22 +76,6 @@ namespace PushThenPause.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TaskCategories",
-                columns: table => new
-                {
-                    TaskCategoryId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    IconUrl = table.Column<string>(type: "TEXT", nullable: true),
-                    Color = table.Column<string>(type: "TEXT", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TaskCategories", x => x.TaskCategoryId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -116,7 +98,6 @@ namespace PushThenPause.Data.Migrations
                     UserTaskId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     UserId = table.Column<int>(type: "INTEGER", nullable: false),
-                    TaskCategoryId = table.Column<int>(type: "INTEGER", nullable: false),
                     Title = table.Column<string>(type: "TEXT", nullable: false),
                     DurationMinutes = table.Column<int>(type: "INTEGER", nullable: false),
                     Notes = table.Column<string>(type: "TEXT", nullable: true),
@@ -142,9 +123,6 @@ namespace PushThenPause.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "StreakTrackers");
-
-            migrationBuilder.DropTable(
-                name: "TaskCategories");
 
             migrationBuilder.DropTable(
                 name: "Users");

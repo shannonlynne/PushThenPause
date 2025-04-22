@@ -11,7 +11,7 @@ using PushThenPause.Data;
 namespace PushThenPause.Data.Migrations
 {
     [DbContext(typeof(PushThenPauseDbContext))]
-    [Migration("20250421195742_InitialCreate")]
+    [Migration("20250422154053_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -58,12 +58,6 @@ namespace PushThenPause.Data.Migrations
 
                     b.Property<DateOnly>("Created")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("DurationMinutesBreakActivity")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("DurationMinutesUserTask")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Notes")
                         .HasColumnType("TEXT");
@@ -120,30 +114,6 @@ namespace PushThenPause.Data.Migrations
                     b.ToTable("StreakTrackers");
                 });
 
-            modelBuilder.Entity("PushThenPause.Data.Models.TaskCategory", b =>
-                {
-                    b.Property<int>("TaskCategoryId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Color")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("IconUrl")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("TaskCategoryId");
-
-                    b.ToTable("TaskCategories");
-                });
-
             modelBuilder.Entity("PushThenPause.Data.Models.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -184,9 +154,6 @@ namespace PushThenPause.Data.Migrations
 
                     b.Property<string>("Notes")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("TaskCategoryId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
                         .IsRequired()

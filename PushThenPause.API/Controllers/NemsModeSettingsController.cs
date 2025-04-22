@@ -40,7 +40,7 @@ namespace PushThenPause.API.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetByUserId),
-                new { id = nemsModeSettings.UserId }, nemsModeSettings);
+                new { userId = nemsModeSettings.UserId }, nemsModeSettings);
         }
 
         [HttpPatch("{id}")]
@@ -66,10 +66,11 @@ namespace PushThenPause.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        [HttpDelete("{userId}")]
+        public async Task<IActionResult> Delete(int userId)
         {
-            NemsModeSettings? settings = await _context.NemsModeSettings.FindAsync(id);
+            NemsModeSettings? settings = await _context.NemsModeSettings
+                .FirstOrDefaultAsync(n => n.UserId == userId);
             if (settings is null)
             {
                 return NotFound();

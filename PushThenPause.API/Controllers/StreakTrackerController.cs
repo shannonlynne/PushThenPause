@@ -74,10 +74,11 @@ namespace PushThenPause.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        [HttpDelete("{userId}")]
+        public async Task<IActionResult> Delete(int userId)
         {
-            StreakTracker? streak = await _context.StreakTrackers.FindAsync(id);
+            StreakTracker? streak = await _context.StreakTrackers
+                .FirstOrDefaultAsync(x => x.UserId == userId);
             if (streak == null)
                 return NotFound();
 
