@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using PushThenPause.Data.Models;
 
 namespace PushThenPause.Data;
 
-public class PushThenPauseDbContext : DbContext
+public class PushThenPauseDbContext : IdentityDbContext<IdentityUser>
 {
     public PushThenPauseDbContext(DbContextOptions<PushThenPauseDbContext> options)
         : base(options) { }
